@@ -39,8 +39,8 @@
         "carComparison": [
             {
                 "label": "תמונה",
-                "old": "old.jpg",
-                "new": "new.jpg",
+                "old": "images/sufa2Img.jpg",
+                "new": "images/sufa3Img.jpg",
                 "type": "image"
             },
             {
@@ -75,8 +75,8 @@
             },
             {
                 "label": "תמונה",
-                "old": "old.jpg",
-                "new": "new.jpg",
+                "old": "images/renglerImg.jpg",
+                "new": "images/renglerNewImg.jpg",
                 "type": "image"
             },
             {

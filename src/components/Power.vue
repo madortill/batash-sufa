@@ -11,9 +11,9 @@
     </div>
   
 
-  <!-- <img src="@/assets/media/Power.png" 
+  <img src="@/assets/media/Power.png" 
        alt="Power" 
-       class="Power" /> -->
+       class="Power" />
 
 </template>
 

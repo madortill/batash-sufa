@@ -18,22 +18,22 @@
 
     <!-- חדש -->
     <td>
-      <!-- <img 
+      <img 
         v-if="row.type === 'image'" 
         :src="row.new" 
         class="car-img" 
-      /> -->
-      <span >{{ row.new }}</span>
+      />
+      <span v-else>{{ row.new }}</span>
     </td>
 
     <!-- ותיק -->
     <td>
-      <!-- <img 
+      <img 
         v-if="row.type === 'image'" 
         :src="row.old" 
         class="car-img" 
-      /> -->
-      <span >{{ row.old }}</span>
+      />
+      <span v-else>{{ row.old }}</span>
     </td>
 
     <!-- כותרת -->

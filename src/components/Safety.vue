@@ -11,9 +11,12 @@
     </div>
   
 
-  <!-- <img src="@/assets/media/Safety.png" 
+  <img src="@/assets/media/Safety.jpg" 
        alt="Safety" 
-       class="Safety" /> -->
+       class="Safety" />
+  <img src="@/assets/media/Safety1.jpg" 
+       alt="Safety" 
+       class="Safety" />
 
 </template>
 
@@ -59,5 +62,10 @@ computed: {
     font-family: "rubik";
     font-size: 2rem;
     letter-spacing: 0rem;
+}
+
+.Safety {
+  height: 12rem;
+  margin: 0rem 3rem;
 }
 </style>

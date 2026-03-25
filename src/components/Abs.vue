@@ -65,11 +65,11 @@ computed: {
       </div>
   
       <!-- כפתור מצלמה במרכז התחתון -->
-      <div class="camera-button-wrap">
+      <!-- <div class="camera-button-wrap">
         <button class="camera-button" @click="openPopup">
           📷 {{ data.Abs[3].buttonText }}
         </button>
-      </div>
+      </div> -->
   
       <!-- הפופאפ -->
       <div v-if="popupOpen" class="popup-overlay" @click="closePopup">
