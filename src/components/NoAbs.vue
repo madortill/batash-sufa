@@ -31,8 +31,8 @@
       <!-- הפופאפ -->
       <div v-if="popupOpen" class="popup-overlay" @click="popupOpen=false">
         <div class="popup-content" @click.stop>
-          <h2>פופאפ</h2>
-          <p>זה תוכן הפופאפ</p>
+          <h2>סרטון</h2>
+          <p>כאן יהיה סרטון</p>
           <button @click="popupOpen=false">סגור</button>
         </div>
       </div>
@@ -48,8 +48,8 @@
     data() {
       return {
         isBraking: false,
-        titleCentered: false,
-        showText: false,
+        titleCentered: true,
+        showText: true,
         popupOpen: false,
       };
     },

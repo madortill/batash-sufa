@@ -19,11 +19,7 @@
       </div>
   
       <!-- start button -->
-      <img src="@/assets/media/nextBTN.png"
-        alt="startBtn"
-        class="letsStartBtn"
-        @click="nextPage"
-      />
+     
     </div>
   </template>
   

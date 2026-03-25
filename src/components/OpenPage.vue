@@ -51,11 +51,6 @@
       </div>
   
       <!-- start button -->
-      <img src="@/assets/media/nextBTN.png"
-        alt="startBtn"
-        class="letsStartBtn"
-        @click="nextPage"
-      />
     </div>
   </template>
   
@@ -78,10 +73,6 @@
       toggleAbout() {
         this.showAbout = !this.showAbout;
         this.infoSymbol = this.infoSymbol === "i" ? "x" : "i";
-      },
-  
-      nextPage() {
-        this.$emit("next", 1);
       },
   
       goBack() {
@@ -516,7 +507,7 @@
 @media (max-height: 770px) {
     .welcome-gal {
         right: 20rem;
-        top: 20rem;
+        top: 20rem; 
         height: 17rem;
     }
 }

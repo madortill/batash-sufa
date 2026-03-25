@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <OpenPage v-if="page ===0 " @next="page = 1" />
+    <OpenPage v-if="page ===0 " @next="page = 1" :hide-next="page === 14"  />
     <GeneralBTN v-if="page >=1" @next="page++" @back="page--"/>
     <Instructions v-if="page === 1"/>
     <SubjectsPage v-if="page ===2"></SubjectsPage>
@@ -11,11 +11,19 @@
     <difrenzial v-if="page ===7"></difrenzial>
     <track-lock v-if="page===8"></track-lock>
     <side-page v-if="page===9  "></side-page>
-    <NoAbs v-if="page===10"></NoAbs>
-    <abs v-if="page===11"></abs>
-    <Over v-if="page===12"></Over>
-    <Power v-if="page===13"></Power>
-    <Safety v-if="page===14"></Safety>
+    <!-- <NoAbs v-if="page===10"></NoAbs> -->
+    <abs v-if="page===10"></abs>
+    <Over v-if="page===11"></Over>
+    <Power v-if="page===12"></Power>
+    <Safety v-if="page===13"></Safety>
+    <End v-if="page===14"></End>
+    <img
+    v-if="page !== 14"
+    src="@/assets/media/nextBTN.png"
+    alt="startBtn"
+    class="letsStartBtn"
+    @click="page++"
+  />
   </div>
 </template>
 
@@ -36,12 +44,13 @@ import Abs from './components/Abs.vue';
 import Over from './components/Over.vue';
 import Power from './components/Power.vue';
 import Safety from './components/Safety.vue';
+import End from './components/End.vue';
 
 
     
 export default {
   name: "App",
-  components: { OpenPage , Instructions, GeneralBTN, SubjectsPage, InformationSofa, InformationRengler, NewRengler, Galgal, Difrenzial, TrackLock, SidePage, NoAbs, Abs, Over, Power, Safety} ,
+  components: { OpenPage , Instructions, GeneralBTN, SubjectsPage, InformationSofa, InformationRengler, NewRengler, Galgal, Difrenzial, TrackLock, SidePage, NoAbs, Abs, Over, Power, Safety, End} ,
 
  
   watch: {
@@ -84,5 +93,25 @@ html {
   overflow: hidden;
   position: relative;
 } */
+
+.letsStartBtn {
+   width: 12rem;
+   height: 9rem;
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1.5rem;
+    cursor: pointer;
+    animation: pulse 1.8s ease infinite;
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+
+
+.letsStartBtn:hover {
+    animation: none;
+    transform: scale(1.13);
+}
+
 </style> 
 
