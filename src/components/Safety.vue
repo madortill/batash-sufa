@@ -11,9 +11,9 @@
     </div>
   
 
-  <img src="@/assets/media/Safety.png" 
+  <!-- <img src="@/assets/media/Safety.png" 
        alt="Safety" 
-       class="Safety" />
+       class="Safety" /> -->
 
 </template>
 

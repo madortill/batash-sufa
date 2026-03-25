@@ -4,7 +4,7 @@
       <p class="mini-title-g"> {{ data.Galgal[1].miniTitle }}</p>
     </div>
     <div class="text-g">
-  <img src="@/assets/media/galgalOne.png" alt="galgal1" class="galgal" />
+  <!-- <img src="@/assets/media/galgalOne.png" alt="galgal1" class="galgal" /> -->
   
   <div class="text-content">
     <p class="first-text">{{ data.Galgal[2].text }}</p>
@@ -13,7 +13,7 @@
 </div>
 
 <div class="text-g">
-  <img src="@/assets/media/galgalTwo.png" alt="galgal2" class="galgal" />
+  <!-- <img src="@/assets/media/galgalTwo.png" alt="galgal2" class="galgal" /> -->
   
   <div class="text-content">
     <p class="first-text">{{ data.Galgal[3].textOne }}</p>

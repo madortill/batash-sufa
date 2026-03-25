@@ -11,9 +11,9 @@
     </div>
   
 
-  <img src="@/assets/media/Difrenzial.png" 
+  <!-- <img src="@/assets/media/Difrenzial.png" 
        alt="TrackLock" 
-       class="TrackLock" />
+       class="TrackLock" /> -->
 
 </template>
 

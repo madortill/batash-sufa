@@ -6,11 +6,11 @@
     <div>
       <div class="sides-wrapper">
         <div class="enter">
-            <img src="@/assets/media/enter.png" alt="enter" class="side-img"/> 
+            <!-- <img src="@/assets/media/enter.png" alt="enter" class="side-img"/>  -->
             <p class="text"> {{ data.Side[2].text }}</p>
         </div>
         <div class="enter">
-            <img src="@/assets/media/out.png" alt="out" class="side-img"/> 
+            <!-- <img src="@/assets/media/out.png" alt="out" class="side-img"/>  -->
             <p class="text"> {{ data.Side[2].textTwo }}</p>
         </div>
     </div>

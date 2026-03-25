@@ -46,7 +46,6 @@ export default {
  
   watch: {
     page(newVal) {
-    console.log(newVal);
   }
 },
   data() {

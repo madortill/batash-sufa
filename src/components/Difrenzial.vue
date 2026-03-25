@@ -4,9 +4,9 @@
       <p class="mini-title-d"> {{ data.Difrenzial[1].miniTitle }}</p>
     </div>
     <div class="section">
-  <img src="@/assets/media/DifrenzialTwo.png" 
+  <!-- <img src="@/assets/media/DifrenzialTwo.png" 
        alt="Difrenzial2" 
-       class="Difrenzial" />
+       class="Difrenzial" /> -->
 
   <div class="text-d">
     <div class="text-content">
