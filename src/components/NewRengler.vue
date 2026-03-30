@@ -5,6 +5,7 @@
     </div>
     <div class="text-wrap">
         <p class="rengler-text"> {{ data.NewRengler[2].text }}</p>
+        <img src="@/assets/media/img-car-rengler.png" alt="img-car-rengler" class="img-car-rengler">
     </div>
 </template>
 
@@ -49,5 +50,8 @@ computed: {
     font-family: "rubik";
     font-size: 2rem;
     letter-spacing: 0rem;
+}
+.img-car-rengler {
+  width: 35rem;
 }
 </style>

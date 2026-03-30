@@ -4,17 +4,17 @@
     <GeneralBTN v-if="page >=1" @next="page++" @back="page--"/>
     <Instructions v-if="page === 1"/>
     <SubjectsPage v-if="page ===2"></SubjectsPage>
-    <InformationSofa v-if="page===3"></InformationSofa>
-    <InformationRengler v-if="page===4"></InformationRengler>
-    <NewRengler v-if="page===5"></NewRengler>
-    <galgal v-if="page===6"></galgal>
-    <difrenzial v-if="page ===7"></difrenzial>
-    <track-lock v-if="page===8"></track-lock>
-    <side-page v-if="page===9  "></side-page>
+    <InformationSofa v-if="page===11"></InformationSofa>
+    <InformationRengler v-if="page===12"></InformationRengler>
+    <NewRengler v-if="page===3"></NewRengler>
+    <galgal v-if="page===4"></galgal>
+    <difrenzial v-if="page ===5"></difrenzial>
+    <track-lock v-if="page===6"></track-lock>
+    <side-page v-if="page===7  "></side-page>
     <!-- <NoAbs v-if="page===10"></NoAbs> -->
-    <abs v-if="page===10"></abs>
-    <Over v-if="page===11"></Over>
-    <Power v-if="page===12"></Power>
+    <abs v-if="page===8"></abs>
+    <Over v-if="page===9"></Over>
+    <Power v-if="page===10"></Power>
     <Safety v-if="page===13"></Safety>
     <End v-if="page===14"></End>
     <img
@@ -82,6 +82,41 @@ export default {
     font-family: "Karantina-Bold";
     src: url('../src/assets/fonts/Karantina-Bold.ttf');
 }
+@font-face {
+  font-family: rubik;
+  src: url('/src/assets/fonts/Rubik/Rubik-Bold.ttf');
+}
+
+@font-face {
+  font-family: rubik-black;
+  src: url('/src/assets/fonts/Rubik/Rubik-Black.ttf');
+}
+
+@font-face {
+  font-family: assistant;
+  src: url('/src/assets/fonts/Assistant/Assistant-Regular.ttf');
+}
+
+@font-face {
+  font-family: assistant-bold;
+  src: url('/src/assets/fonts/Assistant/Assistant-Bold.ttf');
+}
+
+@font-face {
+  font-family: assistant-semiBold;
+  src: url('/src/assets/fonts/Assistant/Assistant-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: assistant-extraBold;
+  src: url('/src/assets/fonts/Assistant/Assistant-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: fredoka;
+  src: url('/src/assets/fonts/Fredoka/Fredoka-Bold.ttf');
+}
+
 
 html {
 	font-size: calc(10px + 0.5vw);

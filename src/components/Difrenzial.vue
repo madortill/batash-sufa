@@ -13,6 +13,7 @@
       <p class="first-text">{{ data.Difrenzial[2].text }}</p>
       <p class="first-text">{{ data.Difrenzial[2].textTwo }}</p>
       <p class="first-text">{{ data.Difrenzial[2].textThree }}</p>
+      <img src="@/assets/media/img-difrenzial.png" alt="img-difrenzial" class="img-difre">
     </div>
   </div>
 </div>
@@ -85,5 +86,12 @@ computed: {
   height: 100%;
   width: auto;
   
+}
+.img-difre {
+  width: 30rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
 </style>

@@ -4,16 +4,16 @@
       <p class="mini-title-g"> {{ data.Galgal[1].miniTitle }}</p>
     </div>
     <div class="text-g">
-  <!-- <img src="@/assets/media/galgalOne.png" alt="galgal1" class="galgal" /> -->
+  <img src="@/assets/media/galgalOne.png" alt="galgal1" class="galgal" />
   
   <div class="text-content">
     <p class="first-text">{{ data.Galgal[2].text }}</p>
-    <p class="first-text">{{ data.Galgal[2].exemple }}</p>
+    <!-- <p class="first-text">{{ data.Galgal[2].exemple }}</p> -->
   </div>
 </div>
 
 <div class="text-g">
-  <!-- <img src="@/assets/media/galgalTwo.png" alt="galgal2" class="galgal" /> -->
+  <img src="@/assets/media/galgalTwo.png" alt="galgal2" class="galgal" />
   
   <div class="text-content">
     <p class="first-text">{{ data.Galgal[3].textOne }}</p>
@@ -60,7 +60,7 @@ computed: {
   padding-top: 5rem;
   display: flex;
   align-items: stretch; /* גורם לילדים להימתח לגובה מלא */
-  gap: 2rem; /* רווח בין תמונה לטקסט */
+  /* gap: 2rem; רווח בין תמונה לטקסט */
 }
 
 .text-content {

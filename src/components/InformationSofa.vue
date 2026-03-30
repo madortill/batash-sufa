@@ -99,7 +99,7 @@ export default {
 
 .compare-table td {
   border: 2px solid #333;
-  padding: 1.5rem;
+  padding: 0.5rem; 
   background: #D9D9D9;
   font-size: 1.8rem;
 }
@@ -110,8 +110,9 @@ export default {
 }
 
 .car-img {
-  max-width: 100%;
-  height: 10rem;
+  max-width: 80%;
+  width: 5rem;
+  height: 5rem;
   object-fit: contain;
 }
 

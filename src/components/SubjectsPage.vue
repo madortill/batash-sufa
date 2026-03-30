@@ -1,8 +1,9 @@
 <template>
     <div>
       <p class="page-title"> {{ data.Subjects[0].title }}</p>
+      <img src="@/assets/media/menu.png" alt="menu" class="menu-img">
     </div>
-    <svg
+    <!-- <svg
       id="Layer_2"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 209.11 527.29"
@@ -633,7 +634,7 @@
           d="M15.96,461.16l.56,4.4,4.21.67s-.6,1.43-.82,1.91c-.65,1.47-1.27,1.47-4.35.35-.76-.28-2.93-1.32-2.93-1.32l3.32-6Z"
         />
       </g>
-    </svg>
+    </svg> -->
 
 
   </template>
@@ -721,12 +722,15 @@ export default {
   <style>
     .page-title {
       position: absolute;
-      font-family: "Karantina-Bold";
-      font-size: 10vw;
+      font-family: rubik-black;
+      font-size: 6vw;
       right: 5rem;
       top: 8rem;
-    
-      
-
+  }
+  .menu-img {
+    width: 16rem;
+    position: relative;
+    top: 7rem;
+    right: 15rem;
   }
 </style>
