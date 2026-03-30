@@ -111,7 +111,7 @@ export default {
 
 .car-img {
   max-width: 80%;
-  width: 5rem;
+  width: 10rem;
   height: 5rem;
   object-fit: contain;
 }
