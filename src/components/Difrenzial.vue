@@ -60,7 +60,7 @@ computed: {
 }
 
 .text-d {
-  width: 40vw;
+  width: 80vw;
   top: 5rem;
   right: 10rem; /* ריווח מהקצה הימני */
   display: flex;
