@@ -1,118 +1,96 @@
-<!-- <template>
+<template>
+  <div class="abs-component">
+
+    <!-- כותרות וטקסט -->
     <div class="titles">
-      <p class="title-a"> {{ data.Abs[0].title }}</p>
-      <p class="mini-title-a"> {{ data.Abs[1].miniTitle }}</p>
+      <p class="title-a">{{ data.Abs[0].title }}</p>
+      <p class="mini-title-a">{{ data.Abs[1].miniTitle }}</p>
     </div>
+
     <div class="text-wrap">
-        <p class="abs-text"> {{ data.Abs[2].text }}</p>
+      <p class="abs-text">{{ data.Abs[2].text }}</p>
     </div>
+
+    <!-- כפתור מצלמה (אם תרצה להחזיר) -->
+    
+    <div class="camera-button-wrap">
+      <button class="camera-button" @click="openPopup">
+        📷 {{ data.Abs[3].buttonText }}
+      </button>
+    </div>
+   
+
+    <!-- פופאפ -->
+    <div v-if="popupOpen" class="popup-overlay" @click="closePopup">
+      <div class="popup-content" @click.stop>
+        <button class="popup-close" @click="closePopup">✖</button>
+        <h2>📷</h2>
+        <p>זה תוכן הפופאפ</p>
+      </div>
+    </div>
+
+  </div>
 </template>
 
 <script>
 export default {
-    name:"Abs",
+  name: "Abs",
 
-    inject: ["dataStore"],
+  inject: ["dataStore"],
 
-computed: {
   data() {
-    return this.dataStore.data.value;
-  }
-}
-}
+    return {
+      popupOpen: false,
+    };
+  },
+
+  computed: {
+    data() {
+      return this.dataStore.data.value;
+    },
+  },
+
+  methods: {
+    openPopup() {
+      this.popupOpen = true;
+      this.$emit("popup-status", true);
+    },
+    closePopup() {
+      this.popupOpen = false;
+      this.$emit("popup-status", false);
+    },
+  },
+};
 </script>
 
 <style>
-  .titles{
-    margin-top: 7rem;
-  }
- .title-a {
+.titles {
+  margin-top: 7rem;
+}
+
+.title-a {
   font-family: "Karantina-Bold";
   font-size: 5rem;
-  margin: 0; 
-  top: 1rem;
+  margin: 0;
 }
 
 .mini-title-a {
-  padding: 0;
   font-family: "Karantina-Regular";
   font-size: 4rem;
   margin: 0;
 }
 
-.text-wrap{
-    width: 65vw;
-    padding: 2rem;
+.text-wrap {
+  width: 65vw;
+  padding: 2rem;
 }
-.abs-text{
-    color: black;
-    font-family: "rubik";
-    font-size: 2rem;
-    letter-spacing: 0rem;
-}
-</style> -->
-<template>
 
-    <div class="abs-component">
-  
-      <!-- כותרות וטקסט -->
-      <div class="titles">
-        <p class="title-a">{{ data.Abs[0].title }}</p>
-        <p class="mini-title-a">{{ data.Abs[1].miniTitle }}</p>
-      </div>
-      <div class="text-wrap">
-        <p class="abs-text">{{ data.Abs[2].text }}</p>
-      </div>
-  
-      <!-- כפתור מצלמה במרכז התחתון -->
-      <!-- <div class="camera-button-wrap">
-        <button class="camera-button" @click="openPopup">
-          📷 {{ data.Abs[3].buttonText }}
-        </button>
-      </div> -->
-  
-      <!-- הפופאפ -->
-      <div v-if="popupOpen" class="popup-overlay" @click="closePopup">
-        <div class="popup-content" @click.stop>
-          <button class="popup-close" @click="closePopup">✖</button>
-          <h2>📷</h2>
-          <p>זה תוכן הפופאפ</p>
-        </div>
-      </div>
-  
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "Abs",
-  
-    inject: ["dataStore"],
-  
-    data() {
-      return {
-        popupOpen: false
-      };
-    },
-  
-    computed: {
-      data() {
-        return this.dataStore.data.value;
-      }
-    },
-  
-    methods: {
-      openPopup() {
-        this.popupOpen = true;
-        this.$emit("popup-status", true); // הכפתור הבא מנוטרל
-      },
-      closePopup() {
-        this.popupOpen = false;
-        this.$emit("popup-status", false); // הכפתור הבא פעיל
-      }
-    }
-  };
-  </script>
+.abs-text {
+  color: black;
+  font-family: "rubik";
+  font-size: 2rem;
+}
+</style>
   
   <style scoped>
   /* סגנונות כותרות וטקסט */
