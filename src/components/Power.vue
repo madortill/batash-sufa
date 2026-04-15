@@ -11,7 +11,7 @@
     </div>
   
 
-  <img src="@/assets/media/Power.png" 
+  <img src="@/assets/media/תמונה37.jpg" 
        alt="Power" 
        class="Power" />
 

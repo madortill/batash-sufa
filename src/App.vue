@@ -15,10 +15,12 @@
     <abs v-if="page===11"></abs>
     <Over v-if="page===12"></Over>
     <Power v-if="page===13"></Power>
-    <Safety v-if="page===14"></Safety>
-    <End v-if="page===15"></End>
+    <flip-cards v-if="page===14"></flip-cards>
+    <Safety v-if="page===15"></Safety>
+    <box v-if="page===16"></box>
+    <End v-if="page===17"></End>
     <img
-    v-if="page !== 15"
+    v-if="page !== 17"
     src="@/assets/media/nextBTN.png"
     alt="startBtn"
     class="letsStartBtn"
@@ -45,12 +47,14 @@ import Over from './components/Over.vue';
 import Power from './components/Power.vue';
 import Safety from './components/Safety.vue';
 import End from './components/End.vue';
+import FlipCards from './components/FlipCards.vue';
+import Box from './components/Box.vue';
 
 
     
 export default {
   name: "App",
-  components: { OpenPage , Instructions, GeneralBTN, SubjectsPage, InformationSofa, InformationRengler, NewRengler, Galgal, Difrenzial, TrackLock, SidePage, NoAbs, Abs, Over, Power, Safety, End} ,
+  components: { OpenPage , Instructions, GeneralBTN, SubjectsPage, InformationSofa, InformationRengler, NewRengler, Galgal, Difrenzial, TrackLock, SidePage, NoAbs, Abs, Over, Power, Safety, End, FlipCards, Box} ,
 
  
   watch: {

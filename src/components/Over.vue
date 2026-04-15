@@ -11,7 +11,7 @@
     </div>
   
 
-  <img src="@/assets/media/Over.png" 
+  <img src="@/assets/media/תמונה38.jpg" 
        alt="over" 
        class="over" />
 
@@ -59,5 +59,9 @@ computed: {
     font-family: "rubik";
     font-size: 2rem;
     letter-spacing: 0rem;
+}
+
+.over{
+  width: 35rem; 
 }
 </style>
