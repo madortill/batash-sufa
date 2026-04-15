@@ -1,6 +1,6 @@
 <template>
     <h1 class="title-r">
-        <p> {{ data.InformationSofa[0].title }}</p>
+         <p>{{ data.RenglerPage[0].title }}</p>
     </h1>
   <div class="table-wrapper-r">
     <table class="compare-table">
@@ -73,15 +73,13 @@ export default {
 .title-r {
   font-family: "Karantina-Bold";
   font-size: 5rem;
-  top: 1rem;
-  margin: 2rem 0 0 0;  /* רק למעלה */
+  margin:-2rem;  /* רק למעלה */
 }
 
 .table-wrapper-r {
   direction: rtl;
-  width: 50rem;
-  height: 40rem;
-  margin-top: 1rem; /* הרווח הקטן בין הכותרת לטבלה */
+  width: 50vw;
+ 
 }
 
 .compare-table {
@@ -93,17 +91,18 @@ export default {
 .compare-table th {
   background: #5d7fae;
   color: white;
-  padding: 12px;
-  border: 2px solid #333;
-  font-size: 2rem;
+  padding: 1rem;
+  border: 0.15rem solid #333;
+  font-size:1.8rem;
 }
 
 .compare-table td {
-  border: 2px solid #333;
-  padding: 1.5rem;
+  border: 0.15rem solid #333;
+  padding: 0.8rem; 
   background: #D9D9D9;
-  font-size: 1.8rem;
+  font-size:1.5rem;
 }
+
 
 .label-cell-r {
   font-weight: bold;
@@ -111,9 +110,10 @@ export default {
 }
 
 .car-img {
-  max-width: 100%;
-  height: 10rem;
+  max-width: 80%;
+  width: 10rem;
+  height: 5rem;
   object-fit: contain;
-}
+} 
 
 </style>

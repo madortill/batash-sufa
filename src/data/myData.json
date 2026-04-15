@@ -69,10 +69,12 @@
                 "new": "8 הילוכים"
             }
         ],
-        "RenglerComparison": [
+        "RenglerPage": [
             {
                 "title": "נתונים טכניים"
-            },
+            }
+       ], 
+        "RenglerComparison": [
             {
                 "label": "תמונה",
                 "old": "images/renglerImg.jpg",

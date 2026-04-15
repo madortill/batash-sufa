@@ -2,8 +2,8 @@
     <h1 class="title-sofa">
         <p> {{ data.InformationSofa[0].title }}</p>
     </h1>
-  <div class="table-wrapper">
-    <table class="compare-table">
+  <div class="table-wrapper-s">
+    <table class="compare-table-s">
 
       <thead>
         <tr>
@@ -21,7 +21,7 @@
       <img 
         v-if="row.type === 'image'" 
         :src="row.new" 
-        class="car-img" 
+        class="car-img-s" 
       />
       <span v-else>{{ row.new }}</span>
     </td>
@@ -31,13 +31,13 @@
       <img 
         v-if="row.type === 'image'" 
         :src="row.old" 
-        class="car-img" 
+        class="car-img-s" 
       />
       <span v-else>{{ row.old }}</span>
     </td>
 
     <!-- כותרת -->
-    <td class="label-cell">
+    <td class="label-cell-s">
       {{ row.label }}
     </td>
 
@@ -77,43 +77,44 @@ export default {
     margin: 0rem;
 }
 
-.table-wrapper {
+ .table-wrapper-s {
   direction: rtl;
-  width: 50rem;
-  height: 50rem;
+  width: 50vw;
+  height: 50vh;
 }
 
-.compare-table {
+.compare-table-s {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
 }
 
-.compare-table th {
+.compare-table-s th {
   background: #5d7fae;
   color: white;
-  padding: 2rem;
-  border: 0.5 solid #333;
-  font-size: 2rem;
+  padding: 1.5rem;
+  border: 0.15rem solid #333;
+  font-size: clamp(1rem, 2.5vw, 2rem);
 }
 
-.compare-table td {
-  border: 2px solid #333;
-  padding: 0.5rem; 
+.compare-table-s td {
+  border: 0.15rem solid #333;
+  padding: 1.2rem; 
   background: #D9D9D9;
-  font-size: 1.8rem;
+  font-size: clamp(0.9rem, 2.2vw, 1.8rem);
 }
 
-.label-cell {
+
+.label-cell-s {
   font-weight: bold;
   background: #d6cda5;
 }
 
-.car-img {
+.car-img-s {
   max-width: 80%;
   width: 10rem;
   height: 5rem;
   object-fit: contain;
-}
+} 
 
 </style>

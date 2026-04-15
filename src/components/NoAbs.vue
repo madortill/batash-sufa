@@ -1,4 +1,5 @@
 <template>
+  
     <div class="scene">
   
       <!-- סצנה עם רכב -->

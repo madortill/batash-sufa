@@ -11,14 +11,14 @@
     <difrenzial v-if="page ===7"></difrenzial>
     <track-lock v-if="page===8"></track-lock>
     <side-page v-if="page===9  "></side-page>
-    <!-- <NoAbs v-if="page===10"></NoAbs> -->
-    <abs v-if="page===10"></abs>
-    <Over v-if="page===11"></Over>
-    <Power v-if="page===12"></Power>
-    <Safety v-if="page===13"></Safety>
-    <End v-if="page===14"></End>
+    <NoAbs v-if="page===10"></NoAbs>
+    <abs v-if="page===11"></abs>
+    <Over v-if="page===12"></Over>
+    <Power v-if="page===13"></Power>
+    <Safety v-if="page===14"></Safety>
+    <End v-if="page===15"></End>
     <img
-    v-if="page !== 14"
+    v-if="page !== 15"
     src="@/assets/media/nextBTN.png"
     alt="startBtn"
     class="letsStartBtn"
