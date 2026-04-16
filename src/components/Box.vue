@@ -1,34 +1,51 @@
 <template>
-    <div class="page">
+     
+
   
       <!-- כותרת -->
-      <h1 class="main-title">מערכות ותפעולן</h1>
-      <h2 class="sub-title">חיבת העברה</h2>
+      <h1 class="main-title">{{ data.Box[0].title }}</h1>
+      <h2 class="sub-title">{{ data.Box[0].minTitle }}  </h2>
   
       <div class="content">
   
         <!-- צד שמאל -->
-        <div class="left-buttons">
-          <button class="btn" @click="playSegment(10, 30)">2H</button>
-          <p>{{ data?.texts?.h2 }}</p>
-  
-          <button class="btn" @click="playSegment(40, 80)">4H</button>
-          <p>{{ data?.texts?.h4 }}</p>
-        </div>
+        <div class="right-buttons">
+  <div class="item">
+    <button class="btn" @click="playSegment(161, 174)">
+      {{ data.Box[0].t3 }}
+    </button>
+    <p>{{ data.Box[0].t3Text }}</p>
+  </div>
+
+  <div class="item">
+    <button class="btn" @click="playSegment(176, 266)">
+      {{ data.Box[0].t4 }}
+    </button>
+  </div>
+</div>
   
         <!-- תמונה באמצע -->
         <div class="center">
-          <img :src="data?.image" alt="center" class="center-img" />
+          <img src="../assets/media/תמונה34.jpg" alt="center" class="center-img" />
         </div>
   
         <!-- צד ימין -->
-        <div class="right-buttons">
-          <button class="btn" @click="playSegment(90, 120)">N</button>
-          <p>{{ data?.texts?.n }}</p>
-  
-          <button class="btn" @click="playSegment(130, 160)">L</button>
-        </div>
-  
+        
+<div class="left-buttons">
+  <div class="item">
+    <button class="btn" @click="playSegment(0, 54)">
+      {{ data.Box[0].t1 }}
+    </button>
+    <p>{{ data.Box[0].t1Text }}</p>
+  </div>
+
+  <div class="item">
+    <button class="btn" @click="playSegment(55, 160)">
+      {{ data.Box[0].t2 }}
+    </button>
+    <p>{{ data.Box[0].t2Text }}</p>
+  </div>
+</div>
       </div>
   
       <!-- וידאו -->
@@ -40,7 +57,7 @@
         ></iframe>
       </div>
   
-    </div>
+   
   </template>
   
   <script>
@@ -52,7 +69,7 @@
     data() {
       return {
         videoUrl: null,
-        baseVideo: "https://www.youtube.com/embed/YOUR_VIDEO_ID"
+        baseVideo: "https://youtu.be/Bcl6ftXyq7c?si=2DfRuA48y2282YRc"
       };
     },
   
@@ -71,55 +88,65 @@
   </script>
   
   <style scoped>
-  .page {
-    background-color: #e6d8a6;
-    min-height: 100vh;
-    text-align: center;
-    padding: 20px;
-  }
+ 
   
   .main-title {
-    color: #1e4fa3;
-    font-size: 2.5rem;
-    font-weight: bold;
+    padding-top: 5rem;
+    font-family: "Karantina-Bold";
+  font-size: 5rem;
+  margin: 0;
   }
   
   .sub-title {
-    color: #1e4fa3;
-    margin-bottom: 30px;
+    font-family: "Karantina-Regular";
+  font-size: 4rem;
+  margin: 0;
   }
   
   .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-  }
+  padding-top: 5rem;
+  display: flex;
+  justify-content: space-between; /* יותר נכון מ-center */
+  align-items: center;
+}
+
+/* כל צד */
+.left-buttons,
+.right-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* רווח בין בלוקים */
+}
+
+/* בלוק של כפתור + טקסט */
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* רווח בין כפתור לטקסט */
+  text-align: center;
+  font-family: 'karantina-light';
+  font-size: 2rem;
+  color: black;
+}
+
+/* כפתור */
+.btn {
+  background-color: #6e8fc1;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  padding: 10px 40px; /* קצת יותר רוחב */
   
-  /* כפתורים */
-  .btn {
-    background-color: #6e8fc1;
-    color: white;
-    border: none;
-    padding: 10px 30px;
-    font-size: 1.2rem;
-    margin: 10px 0;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .btn:hover {
-    background-color: #5674a3;
-  }
-  
-  .left-buttons,
-  .right-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 200px;
-  }
-  
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+/* טקסט */
+.item p {
+  max-width: 20rem;
+}
+
   /* תמונה */
   .center-img {
     width: 250px;
@@ -130,11 +157,11 @@
   
   /* וידאו */
   .video-wrapper {
-    margin-top: 30px;
+    margin-top: 2.5rem;
   }
   
   .video-wrapper iframe {
-    width: 600px;
-    height: 340px;
+    width: 40vw;
+    height: 40vh;
   }
   </style>

@@ -43,27 +43,31 @@
   <template>
     <div class="scene">
   
-      <div class="road-container">
+      <!-- כביש + רכב (נעלמים בסוף) -->
+      <div class="road-container" :class="{ fadeOut: hideScene }">
+  
         <img src="@/assets/media/road.png" class="road" />
   
         <img
-  src="@/assets/media/car.png"
-  class="car"
-  :class="{
-    drive: !isBraking,
-    braking: isBraking
-  }"
-/>
+          src="@/assets/media/car.png"
+          class="car"
+          :class="{
+            drive: stage === 0,
+            braking: stage === 1
+          }"
+          @animationend="handleAnimationEnd"
+        />
   
+        <!-- כותרת (לא זזה עד אחרי העלמות) -->
         <h1 class="title" :class="{ centered: titleCentered }">
-          {{ data.NoAbs?.[0]?.title }}
+          {{ data?.NoAbs?.[0]?.title }}
         </h1>
       </div>
   
-      <!-- טקסט -->
+      <!-- טקסט אחרי הכל -->
       <transition name="fade">
         <div v-if="showText" class="next-screen">
-          <p>{{ data?.Abs?.[1]?.text  }}</p>
+          <p>{{ data?.Abs?.[1]?.text }}</p>
           <button @click="openPopup">פתח פופאפ</button>
         </div>
       </transition>
@@ -123,43 +127,51 @@ export default {
 
   data() {
     return {
-      isBraking: false,
-      titleCentered: false, // מתחיל בצד
-      showText: false,      // הטקסט מוסתר
+      stage: 0,          // שלבים של האנימציה
+      titleCentered: false,
+      showText: false,
       popupOpen: false,
+      hideScene: false
     };
   },
 
   computed: {
     data() {
-      return this.dataStore.data.value;
+      return this.dataStore?.data?.value || {};
     }
   },
 
-  mounted() {
-    // שלב 1 – בלימה
-    setTimeout(() => {
-      this.isBraking = true;
-    }, 1000);
-
-    // שלב 2 – כותרת למרכז
-    setTimeout(() => {
-      this.titleCentered = true;
-    }, 2000);
-
-    // שלב 3 – הופעת טקסט
-    setTimeout(() => {
-      this.showText = true;
-    }, 3000);
-  },
-
   methods: {
+    handleAnimationEnd() {
+      // שלב 1 – מעבר לבלימה
+      if (this.stage === 0) {
+        this.stage = 1;
+      }
+
+      // שלב 2 – אחרי בלימה
+      else if (this.stage === 1) {
+        this.stage = 2;
+
+        // העלמת כביש + רכב
+        this.hideScene = true;
+
+        setTimeout(() => {
+          // כותרת מתמרכזת
+          this.titleCentered = true;
+
+          // טקסט מופיע
+          this.showText = true;
+        }, 500);
+      }
+    },
+
     openPopup() {
       this.popupOpen = true;
     }
   }
 };
 </script>
+
 
   <!-- <style scoped>
   .scene {
@@ -308,6 +320,11 @@ export default {
 .car.braking {
   animation: brake 0.8s ease-out forwards;
 }
+.fadeOut {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
 
 /* תנועה קדימה */
 @keyframes drive {
@@ -357,24 +374,19 @@ export default {
 /* ===== כותרת ===== */
 .title {
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: 5rem;
+  left: 60rem;
   font-size: 3rem;
-  color: white;
-  z-index: 3;
-  font-family: "Karantina-Bold";
-font-size: 5rem;
-color: white;
+  color: #073799;
   transition: all 1s ease;
-  transform: translateX(0);
 }
 
 /* מעבר למרכז */
 .title.centered {
-  top: 7rem;
-  left: 85rem;
-  color: #073799;
+  top: 5rem;
+  left: 50%;
   transform: translateX(-50%);
+  color: #073799;
   text-align: center;
 }
 
@@ -382,14 +394,10 @@ color: white;
 .next-screen {
   position: absolute;
   top: 15rem;
-  left: 80rem;
-  /* width: 100%; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
   color: #073799;
-  z-index: 3;
 }
 
 .next-screen p {
@@ -426,7 +434,7 @@ color: white;
 /* ===== fade ===== */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.6s ease;
 }
 
 .fade-enter-from,

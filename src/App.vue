@@ -8,16 +8,16 @@
     <InformationRengler v-if="page===4"></InformationRengler>
     <NewRengler v-if="page===5"></NewRengler>
     <galgal v-if="page===6"></galgal>
-    <difrenzial v-if="page ===7"></difrenzial>
-    <track-lock v-if="page===8"></track-lock>
-    <side-page v-if="page===9  "></side-page>
-    <NoAbs v-if="page===10"></NoAbs>
-    <abs v-if="page===11"></abs>
-    <Over v-if="page===12"></Over>
-    <Power v-if="page===13"></Power>
-    <flip-cards v-if="page===14"></flip-cards>
-    <Safety v-if="page===15"></Safety>
-    <box v-if="page===16"></box>
+    <difrenzial v-if="page ===9"></difrenzial>
+    <track-lock v-if="page===10"></track-lock>
+    <side-page v-if="page===11  "></side-page>
+    <NoAbs v-if="page===12"></NoAbs>
+    <abs v-if="page===13"></abs>
+    <Over v-if="page===14"></Over>
+    <Power v-if="page===15"></Power>
+    <flip-cards v-if="page===7"></flip-cards>
+    <Safety v-if="page===16"></Safety>
+    <box v-if="page===8"></box>
     <End v-if="page===17"></End>
     <img
     v-if="page !== 17"
