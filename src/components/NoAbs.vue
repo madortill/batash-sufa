@@ -44,25 +44,29 @@
     <div class="scene">
   
       <!-- כביש + רכב (נעלמים בסוף) -->
-      <div class="road-container" :class="{ fadeOut: hideScene }">
-  
-        <img src="@/assets/media/road.png" class="road" />
-  
-        <img
-          src="@/assets/media/car.png"
-          class="car"
-          :class="{
-            drive: stage === 0,
-            braking: stage === 1
-          }"
-          @animationend="handleAnimationEnd"
-        />
-  
+      <!-- <div class="road-container" :class="{ fadeOut: hideScene }"> -->
+
+  <!-- כותרות - צד ימין למעלה -->
+  <div class="header-container">
+      <h1 class="main-title">נהיגה נכונה בג'יפ</h1>
+      <h2 class="sub-title">בלימת חירום ללא מערכת ABS - סופה 2</h2>
+    </div>
+
+      <!-- כביש ורכב -->
+    <div class="road-container" :class="{ fadeOut: hideScene }">
+      <img src="@/assets/media/road.png" class="road" />
+
+      <img
+        src="@/assets/media/car.png"
+        class="car"
+        :class="{ 'start-animation': stage > 0 }"
+      />
+    </div>
         <!-- כותרת (לא זזה עד אחרי העלמות) -->
-        <h1 class="title" :class="{ centered: titleCentered }">
+        <!-- <h1 class="title" :class="{ centered: titleCentered }">
           {{ data?.NoAbs?.[0]?.title }}
         </h1>
-      </div>
+      </div> -->
   
       <!-- טקסט אחרי הכל -->
       <transition name="fade">
@@ -141,35 +145,28 @@ export default {
     }
   },
 
+  mounted() {
+    // התחלת האנימציה באופן אוטומטי
+    setTimeout(() => {
+      this.stage = 1;
+      this.runLogic();
+    }, 500);
+  },
   methods: {
-    handleAnimationEnd() {
-      // שלב 1 – מעבר לבלימה
-      if (this.stage === 0) {
-        this.stage = 1;
-      }
-
-      // שלב 2 – אחרי בלימה
-      else if (this.stage === 1) {
-        this.stage = 2;
-
-        // העלמת כביש + רכב
+    runLogic() {
+      // זמן האנימציה הכולל (נסיעה + בלימה)
+      setTimeout(() => {
         this.hideScene = true;
-
         setTimeout(() => {
-          // כותרת מתמרכזת
-          this.titleCentered = true;
-
-          // טקסט מופיע
           this.showText = true;
-        }, 500);
-      }
-    },
-
+        }, 800);
+      }, 4500);
+    }
+  },
     openPopup() {
       this.popupOpen = true;
     }
-  }
-};
+  };
 </script>
 
 
@@ -287,47 +284,148 @@ export default {
   height: 100vh;
   overflow: hidden;
 }
+.header-container {
+  position: absolute;
+  top: 5rem;
+  right: 10rem;
+  text-align: right;
+  z-index: 10;
+}
+
+.main-title {
+  font-size: 5rem;
+  color: #073799;
+  margin: 0;
+  font-family: "Karantina-Bold";
+}
+
+.sub-title {
+  font-size: 2.5rem;
+  color: #073799;
+  margin-top: 1.5rem;
+  font-family: "Karantina-Light";
+}
 
 /* ===== כביש ===== */
-.road {
-  position: absolute;
+/* כביש */
+.road-container {
+  /* position: absolute; 
+  inset: 0;
+  display: flex;
+  justify-content: center;*/
+  /* position: absolute;
+
   width: 70rem;
+
   height: 100vh;
+
   object-fit: cover;
 
+
+
   left: 30rem;
-  transform: translateX(-50%); /* מרכז אמיתי */
 
-  z-index: 1;
-}
+  transform: translateX(-50%); /* מרכז אמיתי 
 
-/* ===== רכב ===== */
-.car {
+
+
+  z-index: 1 */
   position: absolute;
-  bottom: 5%;
-  left: 48rem;
+  width: 70rem; /* הרוחב שהגדרת */
+  height: 100vh;
+  left: 38%;
+  transform: translateX(-50%); /* ממרכז את כל הקומפוננטה */
+  z-index: 1;
+  overflow: hidden;
+}
+
+.road {
+  /* height: 100%;
+  object-fit: contain; */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* רכב ואנימציה במסלול הכביש */
+.car {
+  /* position: absolute;
+  bottom: -10%; /* מתחיל מחוץ למסך 
+  left: 50%;
   transform: translateX(-50%);
-  width: 150px;
-  z-index: 2;
+  width: 120px;
+  z-index: 5; */
+  position: absolute;
+  bottom: -15rem; /* מתחיל מחוץ למסך למטה */
+  /* מיקום התחלתי בנתיב הימני יחסית למרכז הכביש */
+  left: 55%; 
+  transform: translateX(-50%);
+  width: 8rem; /* גודל ב-rem לרספונסיביות */
+  z-index: 5;
 }
 
-/* מצב נסיעה */
-.car.drive {
-  animation: drive 3s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+.car.start-animation {
+  /* animation: sCurveDrive 4.5s ease-in-out forwards; */
+  animation: rightLaneDrive 4s ease-in-out forwards;
 }
 
-/* מצב בלימה */
-.car.braking {
-  animation: brake 0.8s ease-out forwards;
+@keyframes rightLaneDrive {
+  /* 0%   { bottom: -10%; transform: translateX(-50%) rotate(0deg); }
+  /* 20%  { bottom: 15%;  transform: translateX(-55%) rotate(-5deg); } עיקול שמאלה 
+  /* 40%  { bottom: 40%;  transform: translateX(-45%) rotate(8deg); }  עיקול ימינה 
+  60%  { bottom: 60%;  transform: translateX(-52%) rotate(-3deg); } /* יישור קל 
+  85%  { bottom: 75%;  transform: translateX(-50%) rotate(0deg); }  /* הגעה לנקודת בלימה 
+  
+  /* בלימה (זעזוע קטן) 
+  92%  { bottom: 76%;  transform: translateX(-50%) scale(1.02); } 
+  100% { bottom: 75%;  transform: translateX(-50%) scale(1); } */
+  0% { 
+    bottom: 0rem; 
+    left: 66%; 
+    transform: translateX(-50%) rotate(0deg); 
+  }
+  
+  /* התקדמות בקו ישר יחסית */
+  30% { 
+    bottom: 10rem; 
+    left: 64%; 
+    transform: translateX(-50%) rotate(0deg); 
+  }
+
+  /* פנייה קלה ימינה עם עיקול הכביש */
+  60% { 
+    bottom: 21rem; 
+    left: 65%; /* סטייה קלה ימינה */
+    transform: translateX(-50%) rotate(5deg); 
+  }
+
+  /* יישור ובלימה - מסיים מעט אחרי מרכז הגובה (לפי התמונה) */
+  85% { 
+    bottom: 30rem; 
+    left: 60%; 
+    transform: translateX(-50%) rotate(0deg); 
+  }
+
+  /* אפקט בלימה סופי */
+  92% { 
+    bottom: 33rem; 
+    left: 60%; 
+    transform: translateX(-50%) scale(1.05) rotate(-5deg); 
+  }
+  100% { 
+    bottom: 35rem; 
+    left: 60%; 
+    transform: translateX(-50%) scale(1); 
+  }
 }
+
 .fadeOut {
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.8s ease;
 }
 
-
 /* תנועה קדימה */
-@keyframes drive {
+/* @keyframes drive {
   0% {
     bottom: 5%;
     transform: translateX(-50%);
@@ -352,9 +450,9 @@ export default {
     bottom: 30%;
     transform: translateX(-30%);
   }
-}
+} */
 /* בלימה קטנה */
-@keyframes brake {
+/* @keyframes brake {
   0% {
     bottom: 30%;
     transform: translateX(-30%);
@@ -369,26 +467,26 @@ export default {
     bottom: 30%;
     transform: translateX(-30%);
   }
-}
+} */
 
 /* ===== כותרת ===== */
-.title {
+/* .title {
   position: absolute;
   top: 5rem;
   left: 60rem;
   font-size: 3rem;
   color: #073799;
   transition: all 1s ease;
-}
+} */
 
 /* מעבר למרכז */
-.title.centered {
+/* .title.centered {
   top: 5rem;
   left: 50%;
   transform: translateX(-50%);
   color: #073799;
   text-align: center;
-}
+} */
 
 /* ===== טקסט ===== */
 .next-screen {
